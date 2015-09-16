@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta NAME="ROBOTS"  CONTENT="NOINDEX, NOFOLLOW"/>
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
@@ -31,9 +32,21 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
+        <hr/>
+        @Html.Raw(string.Format("UserAgent: {0} <br/>",Request.UserAgent))
+        <br/>
+        @foreach (var v in Request.Cookies.Keys)
+        {
+            @Html.Raw(string.Format("{0} {1} <br/>", v, Request.Cookies[v.ToString()]))
+        }
+        
+        @Html.Raw(string.Format(""))
+        <hr/>
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+
+            <!-- <A HREF="uploadfile.aspx">Upload a document to the server</A> -->
+<!-- Link removed while bugs in uploadfile.aspx are fixed          -->
         </footer>
     </div>
 

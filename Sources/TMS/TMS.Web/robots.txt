@@ -1,0 +1,8 @@
+﻿User-agent: *
+Disallow: /
+Disallow: /api
+Disallow: /Admin
+Disallow: /uploads
+Disallow: /backup
+Disallow: /~jbloggs
+Disallow: /include 
